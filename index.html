@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>도수보안경 수시 신청서</title>
+  <script>
+    // 카카오톡 인앱 브라우저에서 열리면 자동으로 외부 브라우저(삼성/크롬/사파리)로 전환
+    const _ua = navigator.userAgent || '';
+    const _isKakao = /kakaotalk/i.test(_ua);
+    function openInExternalBrowser() {
+      location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href);
+    }
+    if (_isKakao) {
+      openInExternalBrowser();
+    }
+  </script>
   <style>
     * {
       box-sizing: border-box;
@@ -19,6 +30,33 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    /* 카톡 인앱 브라우저 안내 배너 (외부 브라우저 전환 실패 시 표시) */
+    .kakao-banner {
+      display: none;
+      width: 100%;
+      max-width: 210mm;
+      margin-bottom: 10px;
+      background: #fef3c7;
+      border: 1.5px solid #f59e0b;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #78350f;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .kakao-banner button {
+      margin-top: 8px;
+      width: 100%;
+      background: #d97706;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     /* 상단 조작 바 */
@@ -56,6 +94,7 @@
     }
     .btn-png { background: #1d4ed8; color: #fff; }
     .btn-jpg { background: #0f766e; color: #fff; }
+    .btn-share { background: #ca8a04; color: #fff; }
     .btn-print { background: #4b5563; color: #fff; }
     .btn-reset { background: #e5e7eb; color: #111827; }
 
@@ -79,7 +118,7 @@
       transform-origin: top left;
     }
 
-    /* 제목 (B~F열, 1~4행 중앙 - 원본 비율 27pt) */
+    /* 제목 */
     .doc-title {
       position: absolute;
       left: 14mm;
@@ -94,7 +133,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* 결재란 (G1:H4) */
+    /* 결재란 (빈 칸) */
     .approval-table {
       position: absolute;
       left: 152mm;
@@ -120,7 +159,7 @@
       height: 21mm;
     }
 
-    /* 본문 라벨 & 입력칸 공통 (원본 비율 13.5pt) */
+    /* 본문 라벨 & 입력칸 */
     .row-label {
       position: absolute;
       left: 15mm;
@@ -150,7 +189,6 @@
       border-bottom: 1.5px solid #2563eb;
     }
 
-    /* 각 행 정확한 Y 위치 */
     .y-r10 { top: 82mm; }
     .y-r12 { top: 98mm; }
     .y-r14 { top: 114mm; }
@@ -181,7 +219,7 @@
       border-color: #2563eb;
     }
 
-    /* 25행: 이에 도수보안경을 신청합니다. */
+    /* 25행 */
     .footer-statement {
       position: absolute;
       left: 22mm;
@@ -189,7 +227,7 @@
       font-size: 14pt;
     }
 
-    /* 29행: 날짜 */
+    /* 29행 */
     .date-input {
       position: absolute;
       left: 60mm;
@@ -206,7 +244,7 @@
       background: transparent;
     }
 
-    /* 32행: 성 명 : [이름] (인) */
+    /* 32행 */
     .bottom-sign-label {
       position: absolute;
       left: 54mm;
@@ -259,7 +297,6 @@
       pointer-events: none;
     }
 
-    /* 서명 이미지 */
     .sign-img {
       position: absolute;
       inset: 2px;
@@ -321,7 +358,7 @@
     }
     #previewImg {
       max-width: 100%;
-      max-height: 58vh;
+      max-height: 55vh;
       border: 1px solid #cbd5e1;
       object-fit: contain;
       background: #fff;
@@ -338,20 +375,20 @@
     }
     .modal-actions {
       display: flex;
+      flex-wrap: wrap;
       justify-content: flex-end;
       gap: 8px;
       margin-top: 12px;
       width: 100%;
     }
 
-    /* 인쇄 설정 */
     @page {
       size: A4 portrait;
       margin: 0;
     }
     @media print {
       body { background: #fff; padding: 0; margin: 0; }
-      .toolbar, .modal-backdrop, .seal-hint { display: none !important; }
+      .kakao-banner, .toolbar, .modal-backdrop, .seal-hint { display: none !important; }
       .scale-wrapper {
         width: 210mm !important;
         height: 297mm !important;
@@ -370,6 +407,12 @@
 </head>
 <body>
 
+  <div class="kakao-banner" id="kakaoBanner">
+    <b>⚠️ 카카오톡 화면에서는 사진 다운로드가 차단됩니다.</b><br>
+    아래 버튼을 누르거나, 우측 하단/상단 <b>[⋮ → 다른 브라우저로 열기]</b>를 눌러 여시면 바로 저장됩니다.
+    <button onclick="openInExternalBrowser()">기본 브라우저(삼성/크롬/사파리)로 열기</button>
+  </div>
+
   <div class="toolbar">
     <div class="toolbar-info">
       내용 입력 후 맨 아래 <b>(인)</b> 부분을 눌러 서명하고 <b>사진(PNG/JPG) 저장</b>을 누르세요.
@@ -386,7 +429,6 @@
     <div class="a4-sheet" id="a4Sheet">
       <div class="doc-title">도수보안경 수시 신청서</div>
 
-      <!-- 우측 상단 결재란 (빈 칸 유지) -->
       <table class="approval-table">
         <thead>
           <tr>
@@ -402,7 +444,6 @@
         </tbody>
       </table>
 
-      <!-- 본문 항목 -->
       <div class="row-label y-r10">1. 부 서(팀) :</div>
       <input type="text" class="row-input y-r10" id="fDept" value="고로소결팀" autocomplete="off" />
 
@@ -423,7 +464,6 @@
 
       <input type="text" class="date-input" id="fDate" />
 
-      <!-- 하단 성명 및 (인) 서명 -->
       <div class="bottom-sign-label">성 명 :</div>
       <input type="text" class="bottom-name-input" id="fBottomName" placeholder="성명" autocomplete="off" />
       <div class="bottom-seal-area" onclick="openSignModal()">
@@ -452,11 +492,11 @@
     <div class="preview-modal-box">
       <div class="modal-title">완성된 신청서 사진 (A4)</div>
       <div class="preview-tip">
-        파일이 자동 다운로드되었습니다.<br>
-        <b>카카오톡·아이폰</b> 등에서 저장되지 않은 경우, 아래 이미지를 <b>길게 눌러 [이미지 저장]</b>을 선택하세요!
+        <b>파일 다운로드</b>를 누르거나, 바로 카톡으로 보내시려면 <b>바로 공유</b>를 누르세요!
       </div>
       <img id="previewImg" alt="완성된 신청서 사진" />
       <div class="modal-actions">
+        <button class="btn btn-share" id="shareBtn" style="display:none;" onclick="shareImageFile()">바로 공유(카톡)</button>
         <button class="btn btn-png" onclick="triggerDownloadAgain()">파일 다운로드</button>
         <button class="btn btn-reset" onclick="closePreviewModal()">닫기</button>
       </div>
@@ -490,6 +530,9 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      if (_isKakao) {
+        document.getElementById('kakaoBanner').style.display = 'block';
+      }
       document.getElementById('fDate').value = getTodayKorean();
       fitSheetToScreen(true);
     });
@@ -572,6 +615,7 @@
 
     // ================= A4 이미지 파일(PNG/JPG) 생성 =================
     let lastBlob = null;
+    let lastMime = 'image/png';
     let lastFilename = '도수보안경_수시신청서.png';
 
     function fitDrawImage(targetCtx, imgEl, x, y, w, h) {
@@ -624,6 +668,19 @@
       downloadBlob(lastBlob, lastFilename);
     }
 
+    async function shareImageFile() {
+      if (!lastBlob) return;
+      try {
+        const file = new File([lastBlob], lastFilename, { type: lastMime });
+        await navigator.share({
+          title: '도수보안경 수시 신청서',
+          files: [file]
+        });
+      } catch (e) {
+        // 취소 시 무시
+      }
+    }
+
     function closePreviewModal() {
       document.getElementById('previewModal').style.display = 'none';
     }
@@ -645,13 +702,11 @@
 
       const fontFamily = "Dotum, '돋움', 'Malgun Gothic', '맑은 고딕', sans-serif";
 
-      // 1. 제목 (27pt)
       c.font = `700 ${27 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'center';
       c.textBaseline = 'middle';
       c.fillText('도수보안경 수시 신청서', 83 * mm, 27 * mm);
 
-      // 2. 우측 상단 결재란 (12pt, 빈 칸)
       c.lineWidth = 2;
       c.strokeRect(152 * mm, 13 * mm, 22.5 * mm, 7.5 * mm);
       c.strokeRect(174.5 * mm, 13 * mm, 22.5 * mm, 7.5 * mm);
@@ -662,7 +717,6 @@
       c.fillText('검  토', 163.25 * mm, 16.9 * mm);
       c.fillText('팀  장', 185.75 * mm, 16.9 * mm);
 
-      // 3. 본문 1~5번 (13.5pt)
       c.font = `400 ${13.5 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'left';
       c.textBaseline = 'top';
@@ -691,34 +745,37 @@
       c.fillText('- 내     용 :', 15 * mm, 155.5 * mm);
       drawWrappedText(c, reason, 60 * mm, 155.5 * mm, 132 * mm, 8.5 * mm, 5);
 
-      // 4. 하단 신청 문구 (14pt)
       c.font = `400 ${14 * (200 / 72)}px ${fontFamily}`;
       c.fillText('이에 도수보안경을 신청합니다.', 22 * mm, 205.5 * mm);
 
-      // 5. 날짜 (13.5pt)
       c.font = `400 ${13.5 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'center';
       c.fillText(dateStr, 105 * mm, 238 * mm);
 
-      // 6. 최하단 성명 및 (인) + 신청자 서명 (13.5pt)
       c.fillText('성 명 :', 68 * mm, 264.5 * mm);
       c.fillText(bottomName, 96 * mm, 264.5 * mm);
       c.fillText('(인)', 127 * mm, 264.5 * mm);
 
       fitDrawImage(c, document.getElementById('img-applicant'), 110 * mm, 258 * mm, 34 * mm, 18 * mm);
 
-      const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+      lastMime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
       const ext = format === 'jpeg' ? 'jpg' : 'png';
       const safeName = (name || '작성자').replace(/[\\/:*?"<>|]/g, '');
       lastFilename = `도수보안경_수시신청서_${safeName}.${ext}`;
 
-      document.getElementById('previewImg').src = outCanvas.toDataURL(mime, 0.95);
+      document.getElementById('previewImg').src = outCanvas.toDataURL(lastMime, 0.95);
       document.getElementById('previewModal').style.display = 'flex';
 
       outCanvas.toBlob((blob) => {
         lastBlob = blob;
+        try {
+          const testFile = new File([blob], lastFilename, { type: lastMime });
+          if (navigator.canShare && navigator.canShare({ files: [testFile] })) {
+            document.getElementById('shareBtn').style.display = 'inline-block';
+          }
+        } catch (e) {}
         downloadBlob(blob, lastFilename);
-      }, mime, 0.95);
+      }, lastMime, 0.95);
     }
 
     function resetForm() {
