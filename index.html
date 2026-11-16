@@ -79,17 +79,17 @@
       transform-origin: top left;
     }
 
-    /* 제목 (B~F열, 1~4행 중앙) */
+    /* 제목 (B~F열, 1~4행 중앙 - 원본 비율 27pt) */
     .doc-title {
       position: absolute;
-      left: 15mm;
-      top: 14mm;
-      width: 137mm;
+      left: 14mm;
+      top: 13mm;
+      width: 138mm;
       height: 28mm;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22pt;
+      font-size: 27pt;
       font-weight: 700;
       letter-spacing: 0.5px;
     }
@@ -98,8 +98,8 @@
     .approval-table {
       position: absolute;
       left: 152mm;
-      top: 14mm;
-      width: 44mm;
+      top: 13mm;
+      width: 45mm;
       border-collapse: collapse;
       table-layout: fixed;
     }
@@ -110,38 +110,34 @@
       padding: 0;
     }
     .approval-table th {
-      height: 7mm;
-      font-size: 10.5pt;
+      height: 7.5mm;
+      font-size: 12pt;
       font-weight: 400;
       letter-spacing: 4px;
       padding-left: 4px;
     }
     .approval-table td {
       height: 21mm;
-      position: relative;
-      cursor: pointer;
-    }
-    .approval-table td:hover {
-      background: #f8fafc;
     }
 
-    /* 본문 라벨 & 입력칸 공통 */
+    /* 본문 라벨 & 입력칸 공통 (원본 비율 13.5pt) */
     .row-label {
       position: absolute;
-      left: 16mm;
-      font-size: 11pt;
-      line-height: 7mm;
-      height: 7mm;
+      left: 15mm;
+      font-size: 13.5pt;
+      line-height: 8mm;
+      height: 8mm;
       white-space: pre;
     }
 
     .row-input {
       position: absolute;
-      left: 55.5mm;
+      left: 60mm;
       width: 120mm;
-      height: 7.5mm;
+      height: 8mm;
+      line-height: 8mm;
       font-family: inherit;
-      font-size: 11pt;
+      font-size: 13.5pt;
       color: #000;
       border: none;
       border-bottom: 1px dashed #cbd5e1;
@@ -160,18 +156,18 @@
     .y-r14 { top: 114mm; }
     .y-r16 { top: 130mm; }
     .y-r18 { top: 146mm; }
-    .y-r19 { top: 154mm; }
+    .y-r19 { top: 155mm; }
 
     /* 신청 사유 멀티라인 */
     .reason-box {
       position: absolute;
-      left: 55.5mm;
-      top: 154mm;
-      width: 136mm;
-      height: 42mm;
+      left: 60mm;
+      top: 155mm;
+      width: 133mm;
+      height: 43mm;
       font-family: inherit;
-      font-size: 11pt;
-      line-height: 8mm;
+      font-size: 13.5pt;
+      line-height: 8.5mm;
       color: #000;
       border: 1px dashed #cbd5e1;
       outline: none;
@@ -190,19 +186,19 @@
       position: absolute;
       left: 22mm;
       top: 205mm;
-      font-size: 11.5pt;
+      font-size: 14pt;
     }
 
     /* 29행: 날짜 */
     .date-input {
       position: absolute;
-      left: 65mm;
+      left: 60mm;
       top: 237mm;
-      width: 80mm;
-      height: 8mm;
+      width: 90mm;
+      height: 9mm;
       text-align: center;
       font-family: inherit;
-      font-size: 11pt;
+      font-size: 13.5pt;
       color: #000;
       border: none;
       border-bottom: 1px dashed #cbd5e1;
@@ -213,22 +209,22 @@
     /* 32행: 성 명 : [이름] (인) */
     .bottom-sign-label {
       position: absolute;
-      left: 55mm;
-      top: 264mm;
-      width: 27mm;
+      left: 54mm;
+      top: 263mm;
+      width: 28mm;
       text-align: center;
-      font-size: 11pt;
-      line-height: 8mm;
+      font-size: 13.5pt;
+      line-height: 9mm;
     }
     .bottom-name-input {
       position: absolute;
       left: 82mm;
-      top: 264mm;
-      width: 26mm;
-      height: 8mm;
+      top: 263mm;
+      width: 28mm;
+      height: 9mm;
       text-align: center;
       font-family: inherit;
-      font-size: 11pt;
+      font-size: 13.5pt;
       color: #000;
       border: none;
       border-bottom: 1px dashed #cbd5e1;
@@ -237,10 +233,10 @@
     }
     .bottom-seal-area {
       position: absolute;
-      left: 108mm;
-      top: 259mm;
-      width: 32mm;
-      height: 17mm;
+      left: 110mm;
+      top: 258mm;
+      width: 34mm;
+      height: 18mm;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -249,7 +245,7 @@
       border-radius: 4px;
     }
     .bottom-seal-text {
-      font-size: 11pt;
+      font-size: 13.5pt;
       color: #000;
       pointer-events: none;
       z-index: 1;
@@ -263,7 +259,7 @@
       pointer-events: none;
     }
 
-    /* 서명 이미지 공통 */
+    /* 서명 이미지 */
     .sign-img {
       position: absolute;
       inset: 2px;
@@ -274,13 +270,8 @@
       z-index: 2;
       pointer-events: none;
     }
-    .box-hint {
-      font-size: 9pt;
-      color: #64748b;
-      pointer-events: none;
-    }
 
-    /* 모달 공통 (서명 & 완성 이미지 미리보기) */
+    /* 모달 공통 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -360,7 +351,7 @@
     }
     @media print {
       body { background: #fff; padding: 0; margin: 0; }
-      .toolbar, .modal-backdrop, .box-hint, .seal-hint { display: none !important; }
+      .toolbar, .modal-backdrop, .seal-hint { display: none !important; }
       .scale-wrapper {
         width: 210mm !important;
         height: 297mm !important;
@@ -381,7 +372,7 @@
 
   <div class="toolbar">
     <div class="toolbar-info">
-      내용 입력 후 하단 <b>(인)</b> 또는 상단 <b>검토/팀장</b> 칸을 눌러 서명하고 <b>사진(PNG/JPG) 저장</b>을 누르세요.
+      내용 입력 후 맨 아래 <b>(인)</b> 부분을 눌러 서명하고 <b>사진(PNG/JPG) 저장</b>을 누르세요.
     </div>
     <div class="toolbar-btns">
       <button class="btn btn-reset" onclick="resetForm()">초기화</button>
@@ -395,6 +386,7 @@
     <div class="a4-sheet" id="a4Sheet">
       <div class="doc-title">도수보안경 수시 신청서</div>
 
+      <!-- 우측 상단 결재란 (빈 칸 유지) -->
       <table class="approval-table">
         <thead>
           <tr>
@@ -404,14 +396,8 @@
         </thead>
         <tbody>
           <tr>
-            <td onclick="openSignModal('reviewer', '검토자 서명')">
-              <span class="box-hint" id="ph-reviewer">서명</span>
-              <img class="sign-img" id="img-reviewer" alt="검토 서명" />
-            </td>
-            <td onclick="openSignModal('manager', '팀장 서명')">
-              <span class="box-hint" id="ph-manager">서명</span>
-              <img class="sign-img" id="img-manager" alt="팀장 서명" />
-            </td>
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -440,7 +426,7 @@
       <!-- 하단 성명 및 (인) 서명 -->
       <div class="bottom-sign-label">성 명 :</div>
       <input type="text" class="bottom-name-input" id="fBottomName" placeholder="성명" autocomplete="off" />
-      <div class="bottom-seal-area" onclick="openSignModal('applicant', '신청자 서명 (인)')">
+      <div class="bottom-seal-area" onclick="openSignModal()">
         <span class="bottom-seal-text">(인)</span>
         <span class="seal-hint" id="ph-applicant">눌러서 서명</span>
         <img class="sign-img" id="img-applicant" alt="신청자 서명" />
@@ -451,7 +437,7 @@
   <!-- 서명 패드 모달 -->
   <div class="modal-backdrop" id="signModal">
     <div class="modal-box">
-      <div class="modal-title" id="modalTitle">서명</div>
+      <div class="modal-title">신청자 서명 (인)</div>
       <canvas id="signCanvas"></canvas>
       <div class="modal-actions">
         <button class="btn btn-reset" onclick="clearCanvas()">지우기</button>
@@ -461,7 +447,7 @@
     </div>
   </div>
 
-  <!-- 완성된 사진 미리보기 모달 (카톡/모바일/아이폰 완벽 대응) -->
+  <!-- 완성된 사진 미리보기 모달 -->
   <div class="modal-backdrop" id="previewModal">
     <div class="preview-modal-box">
       <div class="modal-title">완성된 신청서 사진 (A4)</div>
@@ -478,13 +464,11 @@
   </div>
 
   <script>
-    // ================= 오늘 날짜 자동 세팅 =================
     function getTodayKorean() {
       const d = new Date();
       return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
     }
 
-    // ================= 화면 폭 자동 맞춤 =================
     let lastClientWidth = 0;
     function fitSheetToScreen(force) {
       const vw = document.documentElement.clientWidth;
@@ -519,7 +503,6 @@
     const modal = document.getElementById('signModal');
     const canvas = document.getElementById('signCanvas');
     const ctx = canvas.getContext('2d');
-    let currentTarget = null;
     let isDrawing = false;
     let hasDrawn = false;
 
@@ -535,9 +518,7 @@
       ctx.strokeStyle = '#000000';
     }
 
-    function openSignModal(target, title) {
-      currentTarget = target;
-      document.getElementById('modalTitle').textContent = title;
+    function openSignModal() {
       modal.style.display = 'flex';
       hasDrawn = false;
       resizeCanvas();
@@ -545,7 +526,6 @@
 
     function closeSignModal() {
       modal.style.display = 'none';
-      currentTarget = null;
     }
 
     function clearCanvas() {
@@ -576,9 +556,8 @@
     canvas.addEventListener('pointercancel', () => { isDrawing = false; });
 
     function saveSign() {
-      if (!currentTarget) return;
-      const img = document.getElementById('img-' + currentTarget);
-      const ph = document.getElementById('ph-' + currentTarget);
+      const img = document.getElementById('img-applicant');
+      const ph = document.getElementById('ph-applicant');
       if (!hasDrawn) {
         img.src = '';
         img.style.display = 'none';
@@ -666,28 +645,25 @@
 
       const fontFamily = "Dotum, '돋움', 'Malgun Gothic', '맑은 고딕', sans-serif";
 
-      // 1. 제목
-      c.font = `700 ${22 * (200 / 72)}px ${fontFamily}`;
+      // 1. 제목 (27pt)
+      c.font = `700 ${27 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'center';
       c.textBaseline = 'middle';
-      c.fillText('도수보안경 수시 신청서', 83.5 * mm, 28 * mm);
+      c.fillText('도수보안경 수시 신청서', 83 * mm, 27 * mm);
 
-      // 2. 우측 상단 결재란
+      // 2. 우측 상단 결재란 (12pt, 빈 칸)
       c.lineWidth = 2;
-      c.strokeRect(152 * mm, 14 * mm, 22 * mm, 7 * mm);
-      c.strokeRect(174 * mm, 14 * mm, 22 * mm, 7 * mm);
-      c.strokeRect(152 * mm, 21 * mm, 22 * mm, 21 * mm);
-      c.strokeRect(174 * mm, 21 * mm, 22 * mm, 21 * mm);
+      c.strokeRect(152 * mm, 13 * mm, 22.5 * mm, 7.5 * mm);
+      c.strokeRect(174.5 * mm, 13 * mm, 22.5 * mm, 7.5 * mm);
+      c.strokeRect(152 * mm, 20.5 * mm, 22.5 * mm, 21 * mm);
+      c.strokeRect(174.5 * mm, 20.5 * mm, 22.5 * mm, 21 * mm);
 
-      c.font = `400 ${10.5 * (200 / 72)}px ${fontFamily}`;
-      c.fillText('검  토', 163 * mm, 17.6 * mm);
-      c.fillText('팀  장', 185 * mm, 17.6 * mm);
+      c.font = `400 ${12 * (200 / 72)}px ${fontFamily}`;
+      c.fillText('검  토', 163.25 * mm, 16.9 * mm);
+      c.fillText('팀  장', 185.75 * mm, 16.9 * mm);
 
-      fitDrawImage(c, document.getElementById('img-reviewer'), 153 * mm, 22 * mm, 20 * mm, 19 * mm);
-      fitDrawImage(c, document.getElementById('img-manager'), 175 * mm, 22 * mm, 20 * mm, 19 * mm);
-
-      // 3. 본문 1~5번
-      c.font = `400 ${11 * (200 / 72)}px ${fontFamily}`;
+      // 3. 본문 1~5번 (13.5pt)
+      c.font = `400 ${13.5 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'left';
       c.textBaseline = 'top';
 
@@ -699,48 +675,46 @@
       const dateStr = document.getElementById('fDate').value;
       const bottomName = document.getElementById('fBottomName').value;
 
-      c.fillText('1. 부 서(팀) :', 16 * mm, 82.5 * mm);
-      c.fillText(dept, 56 * mm, 82.5 * mm);
+      c.fillText('1. 부 서(팀) :', 15 * mm, 82.5 * mm);
+      c.fillText(dept, 60 * mm, 82.5 * mm);
 
-      c.fillText('2. 직     급 :', 16 * mm, 98.5 * mm);
-      c.fillText(rank, 56 * mm, 98.5 * mm);
+      c.fillText('2. 직     급 :', 15 * mm, 98.5 * mm);
+      c.fillText(rank, 60 * mm, 98.5 * mm);
 
-      c.fillText('3. 성     명 :', 16 * mm, 114.5 * mm);
-      c.fillText(name, 56 * mm, 114.5 * mm);
+      c.fillText('3. 성     명 :', 15 * mm, 114.5 * mm);
+      c.fillText(name, 60 * mm, 114.5 * mm);
 
-      c.fillText('4. 사     번 :', 16 * mm, 130.5 * mm);
-      c.fillText(empNo, 56 * mm, 130.5 * mm);
+      c.fillText('4. 사     번 :', 15 * mm, 130.5 * mm);
+      c.fillText(empNo, 60 * mm, 130.5 * mm);
 
-      c.fillText('5. 신청 사유', 16 * mm, 146.5 * mm);
-      c.fillText('- 내     용 :', 16 * mm, 154.5 * mm);
-      drawWrappedText(c, reason, 56 * mm, 154.5 * mm, 134 * mm, 8 * mm, 5);
+      c.fillText('5. 신청 사유', 15 * mm, 146.5 * mm);
+      c.fillText('- 내     용 :', 15 * mm, 155.5 * mm);
+      drawWrappedText(c, reason, 60 * mm, 155.5 * mm, 132 * mm, 8.5 * mm, 5);
 
-      // 4. 하단 신청 문구
-      c.font = `400 ${11.5 * (200 / 72)}px ${fontFamily}`;
+      // 4. 하단 신청 문구 (14pt)
+      c.font = `400 ${14 * (200 / 72)}px ${fontFamily}`;
       c.fillText('이에 도수보안경을 신청합니다.', 22 * mm, 205.5 * mm);
 
-      // 5. 날짜
-      c.font = `400 ${11 * (200 / 72)}px ${fontFamily}`;
+      // 5. 날짜 (13.5pt)
+      c.font = `400 ${13.5 * (200 / 72)}px ${fontFamily}`;
       c.textAlign = 'center';
       c.fillText(dateStr, 105 * mm, 238 * mm);
 
-      // 6. 최하단 성명 및 (인) + 신청자 서명
-      c.fillText('성 명 :', 68.5 * mm, 265.5 * mm);
-      c.fillText(bottomName, 95 * mm, 265.5 * mm);
-      c.fillText('(인)', 124 * mm, 265.5 * mm);
+      // 6. 최하단 성명 및 (인) + 신청자 서명 (13.5pt)
+      c.fillText('성 명 :', 68 * mm, 264.5 * mm);
+      c.fillText(bottomName, 96 * mm, 264.5 * mm);
+      c.fillText('(인)', 127 * mm, 264.5 * mm);
 
-      fitDrawImage(c, document.getElementById('img-applicant'), 108 * mm, 259 * mm, 32 * mm, 17 * mm);
+      fitDrawImage(c, document.getElementById('img-applicant'), 110 * mm, 258 * mm, 34 * mm, 18 * mm);
 
       const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
       const ext = format === 'jpeg' ? 'jpg' : 'png';
       const safeName = (name || '작성자').replace(/[\\/:*?"<>|]/g, '');
       lastFilename = `도수보안경_수시신청서_${safeName}.${ext}`;
 
-      // 미리보기 창에 dataURL 세팅 (카톡/아이폰 길게 눌러 저장용)
       document.getElementById('previewImg').src = outCanvas.toDataURL(mime, 0.95);
       document.getElementById('previewModal').style.display = 'flex';
 
-      // PC/안드로이드 자동 다운로드 실행
       outCanvas.toBlob((blob) => {
         lastBlob = blob;
         downloadBlob(blob, lastFilename);
@@ -757,13 +731,11 @@
       document.getElementById('fDate').value = getTodayKorean();
       document.getElementById('fBottomName').value = '';
 
-      ['applicant', 'reviewer', 'manager'].forEach((key) => {
-        const img = document.getElementById('img-' + key);
-        const ph = document.getElementById('ph-' + key);
-        img.src = '';
-        img.style.display = 'none';
-        ph.style.display = 'inline';
-      });
+      const img = document.getElementById('img-applicant');
+      const ph = document.getElementById('ph-applicant');
+      img.src = '';
+      img.style.display = 'none';
+      ph.style.display = 'inline';
     }
   </script>
 </body>
